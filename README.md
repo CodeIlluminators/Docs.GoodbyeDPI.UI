@@ -10,5 +10,5 @@
   <a href="https://github.com/Storik4pro/GoodbyeDPI-UI/issues">
     <img src="https://img.shields.io/github/issues/CodeIlluminators/Docs.GoodbyeDPI.UI?colorA=1e1e28&colorB=bee4ed&logoColor=D9E0EE&logo=gitbook&style=for-the-badge"></a>
   <a href="https://github.com/Storik4pro/GoodbyeDPI-UI/releases/latest">
-    <img alt="Releases" src="https://img.shields.io/github/release/Storik4pro/GoodbyeDPI-UI?style=for-the-badge&logo=github&color=F2CDCD&logoColor=D9E0EE&labelColor=302D41"/></a>
+    <img alt="Releases" src="https://img.shields.io/github/release/CodeIlluminators/Docs.GoodbyeDPI.UI?style=for-the-badge&logo=github&color=F2CDCD&logoColor=D9E0EE&labelColor=302D41"/></a>
 </p>
