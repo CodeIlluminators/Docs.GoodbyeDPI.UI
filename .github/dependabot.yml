@@ -1,0 +1,25 @@
+version: 2
+updates:
+  # Configuration to check for updates in Node.js dependencies (using pnpm).
+  - package-ecosystem: 'npm' # The package manager for the project (using "npm" ecosystem for pnpm).
+    directory: '/' # Directory where the package.json is located (root in this case).
+    schedule:
+      interval: 'weekly' # Frequency of the update checks (can be daily, weekly, or monthly).
+    commit-message:
+      prefix: 'chore(deps)' # Prefix added to commit messages for dependency updates.
+    labels:
+      - 'dependencies'
+      - 'node'
+      - 'pnpm'
+    open-pull-requests-limit: 5 # Limit the number of open pull requests created by Dependabot at a time.
+    ignore:
+      # List of specific dependencies to ignore for updates.
+      # Useful for libraries where automatic updates might cause issues.
+      - dependency-name: 'next'
+      - dependency-name: 'babylon'
+      - dependency-name: 'typescript'
+      - dependency-name: 'autoprefixer'
+      - dependency-name: 'lucide-react'
+      - dependency-name: 'eslint-config-next'
+      - dependency-name: 'eslint'
+    rebase-strategy: 'auto' # Automatically rebase pull requests if conflicts arise.

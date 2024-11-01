@@ -1,107 +1,123 @@
 "use client";
 
-import { Command, FileTextIcon, SearchIcon } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
-import { Input } from "@/components/ui/input";
+import Anchor from "@/components/anchor";
 import {
-	Dialog,
-	DialogContent,
-	DialogHeader,
-	DialogTrigger,
-	DialogClose,
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
 } from "@/components/ui/dialog";
-import { page_routes } from "@/lib/routes-config";
+import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import Anchor from "./anchor";
+import { advanceSearch, cn } from "@/lib/utils";
+import { CommandIcon, FileIcon, SearchIcon } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
 
 export default function Search() {
-	const [searchedInput, setSearchedInput] = useState("");
-	const [isOpen, setIsOpen] = useState(false);
+  const [searchedInput, setSearchedInput] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
 
-	useEffect(() => {
-		const handleKeyDown = (event: KeyboardEvent) => {
-			if (event.ctrlKey && event.key === "k") {
-				event.preventDefault();
-				setIsOpen(true);
-			}
-		};
-		window.addEventListener("keydown", handleKeyDown);
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.ctrlKey && event.key === "k") {
+        event.preventDefault();
+        setIsOpen(true);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
 
-		return () => {
-			window.removeEventListener("keydown", handleKeyDown);
-		};
-	}, []);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
-	const filteredResults = useMemo(
-		() =>
-			page_routes.filter((item) =>
-				item.title.toLowerCase().includes(searchedInput.toLowerCase()),
-			),
-		[searchedInput],
-	);
+  const filteredResults = useMemo(
+    () => advanceSearch(searchedInput.trim()),
+    [searchedInput]
+  );
 
-	return (
-		<>
-			<Dialog
-				open={isOpen}
-				onOpenChange={(open) => {
-					if (!open) setSearchedInput("");
-					setIsOpen(open);
-				}}
-			>
-				<DialogTrigger asChild>
-					<div className="relative flex-1 max-w-md cursor-pointer">
-						<SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-500 dark:text-neutral-400" />
-						<Input
-							className="w-full rounded-md bg-muted border h-9 pl-10 pr-4 text-sm shadow-sm "
-							placeholder="Поиск..."
-							type="search"
-						/>
-						<div className="select-none sm:flex hidden absolute top-1/2 -translate-y-1/2 right-2 text-xs font-medium font-mono items-center gap-0.5 dark:bg-neutral-700 bg-zinc-200 p-1 rounded-sm">
-							<Command className="w-3 h-3" />
-							<span>k</span>
-						</div>
-					</div>
-				</DialogTrigger>
-				<DialogContent className="p-0 max-w-[650px] sm:top-[38%] top-[45%]">
-					<DialogHeader>
-						<input
-							value={searchedInput}
-							onChange={(e) => setSearchedInput(e.target.value)}
-							placeholder="Начните писать чтобы искать..."
-							autoFocus
-							className="h-14 px-4 bg-transparent border-b text-[15px] outline-none"
-						/>
-					</DialogHeader>
-					{filteredResults.length == 0 && searchedInput && (
-						<p className="text-muted-foreground mx-auto mt-2 text-sm">
-							Нет результатов по запросу{" "}
-							<span className="text-primary">{`"${searchedInput}"`}</span>
-                            .
-						</p>
-					)}
-					<ScrollArea className="max-h-[350px]">
-						<div className="flex flex-col items-start overflow-y-auto sm:px-3 px-1 pb-4 gap-0.5">
-							{filteredResults.map((item) => (
-								<DialogClose
-									onChange={(val) => console.log(val)}
-									key={item.href}
-									asChild
-								>
-									<Anchor
-										className="select-none dark:hover:bg-neutral-900 hover:bg-neutral-100 w-full p-2.5 px-3 rounded-sm text-[15px] flex items-center gap-2.5"
-										href={`/docs/${item.href}`}
-										activeClassName="dark:bg-neutral-900 bg-neutral-100"
-									>
-										<FileTextIcon className="h-[1.1rem] w-[1.1rem]" />{" "}
-										{item.title}
-									</Anchor>
-								</DialogClose>
-							))}
-						</div>
-					</ScrollArea>
-				</DialogContent>
-			</Dialog>
-		</>
-	);
+  return (
+    <div className="w-full md:w-auto">
+      <Dialog
+        open={isOpen}
+        onOpenChange={(open) => {
+          if (!open) setSearchedInput("");
+          setIsOpen(open);
+        }}
+      >
+        <DialogTrigger asChild>
+          <div className="relative flex-1 max-w-md cursor-pointer m-auto">
+            <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-stone-500 dark:text-stone-400" />
+            <Input
+              className="md:w-full rounded-md dark:bg-background/95 bg-background border h-9 pl-10 pr-0 sm:pr-4 text-sm shadow-sm overflow-ellipsis"
+              placeholder="Поиск..."
+              type="search"
+            />
+            <div className="select-none lg:flex hidden absolute top-[48%] -translate-y-1/2 right-1.5 text-xs font-medium font-mono items-center gap-0.5 bg-accent p-1 rounded-sm">
+              <CommandIcon className="w-3 h-3" />
+              <span>k</span>
+            </div>
+          </div>
+        </DialogTrigger>
+        <DialogContent className="p-0 max-w-[650px] sm:top-[40%] top-[45%] !rounded-md">
+          <DialogTitle className="sr-only">Поиск по документации</DialogTitle>
+          <DialogHeader>
+            <input
+              value={searchedInput}
+              onChange={(e) => setSearchedInput(e.target.value)}
+              placeholder="Начните писать..."
+              autoFocus
+              className="h-14 px-6 bg-transparent border-b text-[14px] outline-none"
+            />
+          </DialogHeader>
+          {filteredResults.length == 0 && searchedInput && (
+            <p className="text-muted-foreground mx-auto mt-2 text-sm">
+              Ничего не найдено по запросу{" "}
+              <span className="text-primary">{`"${searchedInput}"`}</span>
+            </p>
+          )}
+          <ScrollArea className="max-h-[400px] overflow-y-auto">
+            <div className="flex flex-col items-start overflow-y-auto sm:px-2 px-1 pb-4">
+              {filteredResults.map((item) => {
+                const level = (item.href.split("/").slice(1).length -
+                  1) as keyof typeof paddingMap;
+                const paddingClass = paddingMap[level];
+
+                return (
+                  <DialogClose key={item.href} asChild>
+                    <Anchor
+                      className={cn(
+                        "hover:bg-accent w-full px-3 rounded-sm text-sm flex items-center gap-2.5",
+                        paddingClass
+                      )}
+                      href={`/docs${item.href}`}
+                    >
+                      <div
+                        className={cn(
+                          "flex items-center w-fit h-full py-3 gap-1.5 px-2",
+                          level > 1 && "border-l pl-4"
+                        )}
+                      >
+                        <FileIcon className="h-[1.1rem] w-[1.1rem] mr-1" />{" "}
+                        {item.title}
+                      </div>
+                    </Anchor>
+                  </DialogClose>
+                );
+              })}
+            </div>
+          </ScrollArea>
+        </DialogContent>
+      </Dialog>
+    </div>
+  );
 }
+
+const paddingMap = {
+  1: "pl-2",
+  2: "pl-4",
+  3: "pl-10",
+  // Add more levels if needed
+} as const;

@@ -1,3 +1,0 @@
-{
-	"*": "pnpm run clean:write"
-}

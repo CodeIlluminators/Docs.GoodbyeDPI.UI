@@ -1,43 +1,52 @@
-import type {Metadata} from "next";
-import {GeistSans} from "geist/font/sans";
-import {GeistMono} from "geist/font/mono";
-import {ThemeProvider} from "@/components/theme-provider";
-import {Navbar} from "@/components/navbar";
-import {Footer} from "@/components/footer";
-import {SpeedInsights} from "@vercel/speed-insights/next";
-import {Analytics} from "@vercel/analytics/react";
-import "./globals.css";
+import App from "@/app/App";
+import RouterProgress from "@/components/atoms/router-progress";
+import "@/styles/globals.css";
+import "@/styles/nprogress.css";
+import { GeistMono } from "geist/font/mono";
+import { GeistSans } from "geist/font/sans";
+import type { Metadata, Viewport } from "next";
 
 export const metadata: Metadata = {
-    title: "GoodbyeDPI/UI",
-    metadataBase: new URL("https://goodbyedpi-ui.vercel.app/"),
-    description: "",
+  title: "GoodbyeDPI UI",
+  metadataBase: new URL("https://goodbyedpi-ui.vercel.app/"),
+  description:
+    "GoodbyeDPI UI, a graphical interface for managing DPI(Deep Packet Inspection) bypass utils (Windows 10/11).",
+  openGraph: {
+    title: "GoodbyeDPI UI",
+    description: "UI for Managing DPI(Deep Packet Inspection) Bypass utils (Windows 10/11).",
+    url: "https://goodbyedpi-ui.vercel.app/",
+    siteName: "GoodbyeDPI UI",
+    images: "/opengraph-image.jpg",
+    locale: "ru_RU",
+    type: "website",
+  },
 };
 
-const RootLayout = ({children}: Readonly<{children: React.ReactNode}>) => {
-    return (
-        <html lang="en" suppressHydrationWarning>
-        <body
-            className={`${GeistSans.variable} ${GeistMono.variable} font-regular`}
-            suppressHydrationWarning
-        >
-        <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-        >
-            <Navbar/>
-            <main className="sm:container mx-auto w-[85vw] h-auto">
-                {children}
-            </main>
-            <Footer/>
-        </ThemeProvider>
-        <Analytics/>
-        <SpeedInsights/>
-        </body>
-        </html>
-    );
-}
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1.0,
+  maximumScale: 1.0,
+  userScalable: false,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "var(--background)" },
+    { media: "(prefers-color-scheme: dark)", color: "var(--background)" },
+  ],
+};
 
-export default RootLayout;
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="ru" suppressHydrationWarning>
+      <body
+        className={`${GeistSans.variable} ${GeistMono.variable} font-regular antialiased`}
+        suppressHydrationWarning
+      >
+        <RouterProgress />
+        <App>{children}</App>
+      </body>
+    </html>
+  );
+}
