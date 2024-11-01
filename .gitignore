@@ -1,75 +1,97 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-.yarn/install-state.gz
-
-# next.js
-/.next/
-
-# testing
-/.nyc_output
-/coverage
-/out/
-
-# production
-/build
-/dist
-
-# OS
-.DS_Store
-*.pem
-
-# debug
+# Logs and Debugging
+logs/
 *.log
 npm-debug.log*
 pnpm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+pnpm-error.log*
+pnpm-debug.log*
 lerna-debug.log*
 
-# dotenv environment variable files
+# Node Modules
+node_modules/
+
+# Distribution Builds
+dist/
+build/
+output
+out/
+dist-ssr/
+!/out/.gitkeep
+!/dist/.gitkeep
+!/build/.gitkeep
+
+# Vercel Deployment
+.vercel/
+
+# Next.js
+.next/
+out/
+!/out/.gitkeep
+
+# Testing and Coverage
+coverage/
+.nyc_output/
+.vitest/
+
+# Local Environment Files
 .env
+.env*.local
 .env.development.local
 .env.test.local
 .env.production.local
-.env.local
 
-# IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+# Package Managers
+.pnp
+.pnp.js
+.yarn/install-state.gz
 
-# temp directory
-.temp
-.tmp
+# WiX
+WixTools
 
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
-
-# local env files
-.env*.local
-
-# vercel
-.vercel
-
-# typescript
+# TypeScript
 *.tsbuildinfo
-next-env.d.ts
 
-# Diagnostic reports (https://nodejs.org/api/report.html)
-report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+# Lint and Formatter
+.eslintcache
+.stylelintcache
+.prettiercache
+.npmrc
+.pnpmrc
+
+# IDE and Editor Settings
+# Visual Studio Code
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# JetBrains IDEs (WebStorm, IntelliJ, etc.)
+.idea/
+*.iml
+
+# Visual Studio
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Operating System Specific Files
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Miscellaneous
+*.local
+*.lock
+yarn.lock
+package-lock.json
+
+# Temporary Files
+tmp/
+temp/
+
+# Other
+keys/*
+!/keys/.gitkeep

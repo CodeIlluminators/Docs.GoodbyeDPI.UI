@@ -200,4 +200,4 @@ Procfile    text
 # DISABLE SHRINKWRAP MERGING AS RESULTS MAY BE INVALID.
 npm-shrinkwrap.json merge=binary
 shrinkwrap.yaml merge=binary
-yarn.lock merge=binary
+pnpm.lock merge=binary

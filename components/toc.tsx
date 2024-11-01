@@ -1,18 +1,24 @@
-import { getTocs } from "@/lib/markdown";
-import TocObserver from "./toc-observer";
+import ScrollToTopButton from "@/components/atoms/scroll-to-top-button";
+import TocObserver from "@/components/toc-observer";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { getDocsTocs } from "@/lib/markdown";
+import { AlignLeftIcon } from "lucide-react";
 
 export default async function Toc({ path }: { path: string }) {
-	const tocs = await getTocs(path);
+  const tocs = await getDocsTocs(path);
 
-	return (
-		<div className="lg:flex hidden toc flex-[1] min-w-[230px] py-8 sticky top-16 h-[95.95vh]">
-			<div className="flex flex-col gap-2.5 w-full">
-				<h3 className="font-medium text-sm">On this page</h3>
-				<ScrollArea className="pb-4 pt-0.5">
-					<TocObserver data={tocs} />
-				</ScrollArea>
-			</div>
-		</div>
-	);
+  return (
+    <div className="lg:flex hidden toc flex-[1.5] min-w-[238px] py-10 lg:sticky top-16 h-[calc(100vh-4.5rem)] overflow-y-auto">
+      <div className="flex flex-col gap-3 w-full pl-2">
+        <div className="flex flex-row gap-3 items-center justify-start">
+          <AlignLeftIcon className="h-5 w-5" />
+          <h3 className="font-medium text-sm leading-relaxed">На этой странице</h3>
+        </div>
+        <ScrollArea className="pb-2 pl-10 pt-0.5 overflow-y-auto">
+          <TocObserver data={tocs} />
+        </ScrollArea>
+        <ScrollToTopButton />
+      </div>
+    </div>
+  );
 }

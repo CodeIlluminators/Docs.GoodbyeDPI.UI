@@ -1,25 +1,46 @@
 {
-	"name": "faq_goodbyedpi_ui",
+	"name": "docs-goodbyedpi-ui",
 	"version": "1.0.0",
 	"private": true,
+	"type": "module",
+	"author": {
+		"name": "CodeIlluminators Collective",
+		"url": "https://github.com/CodeIlluminators"
+	},
+	"authors": [
+		"Storik4pro <serstor15@gmail.com>",
+		"𝕷𝖚𝖒𝖊𝖓 𝕻𝖊𝖆𝖗𝖘𝖔𝖓 <lumenpearson@gmail.com>"
+	],
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/CodeIlluminators/Docs.GoodbyeDPI.UI.git"
+	},
+	"bugs": {
+		"url": "https://github.com/CodeIlluminators/Docs.GoodbyeDPI.UI/issues"
+	},
+	"homepage": "https://github.com/CodeIlluminators/Docs.GoodbyeDPI.UI/readme",
 	"scripts": {
-		"dev": "next dev -p 3001",
-		"lint": "next lint",
 		"commit": "cz",
 		"precommit": "lint-staged",
 		"prepare": "husky install",
-		"build": "next build",
-		"start:debug": "next start --debug --watch",
-		"start:dev": "next start --watch",
+		"dev": "next dev -H 0.0.0.0 -p 3001",
+		"start:local": "next start -H 0.0.0.0 -p 3000",
 		"start": "next start",
-		"sort-imports:list": "npx import-sort --list-different '**/*.{ts,js}'",
-		"sort-imports:write": "npx import-sort --write '**/*.{ts,js}'",
-		"format:check": "prettier . --check",
-		"format:write": "prettier . --write",
+		"build": "next build",
 		"lint:check": "mkdir -p logs && eslint . --no-fix --output-file logs/eslint-check.log",
 		"lint:fix": "eslint . --fix",
-		"clean:check": "run-p sort-imports:check format:check lint:check",
-		"clean:write": "pnpm sort-imports:write && pnpm format:write"
+		"lint": "next lint",
+		"format:check": "prettier . --check",
+		"format:write": "prettier . --write",
+		"clean:check": "run-p sort-imports:list format:check lint:check",
+		"clean:write": "run-p lint:fix sort-imports:write format:write",
+		"sort-imports:list": "npx import-sort --list-different \"**/*.{tsx,ts,js,jsx}\"",
+		"sort-imports:write": "npx import-sort --write \"**/*.{tsx,ts,js,jsx}\""
+	},
+	"engineStrict": true,
+	"engines": {
+		"node": ">= 20"
 	},
 	"lint-staged": {
 		"*": [
@@ -31,81 +52,69 @@
 			"post-commit": "sh .husky/post-commit.sh"
 		}
 	},
-	"license": "Apache-2.0",
-	"authors": [
-		"Storik4Pro <serstor15@gmail.com>",
-		"CodeIlluminators [GitHub](https://github.com/CodeIlluminators/)",
-		"ValdikSS <iam@valdikss.org.ru>"
-	],
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/lumenpearson/FAQ-GoodbyeDPI-UI.git"
-	},
-	"bugs": {
-		"url": "https://github.com/lumenpearson/FAQ-GoodbyeDPI-UI/issues"
-	},
-	"homepage": "https://github.com/lumenpearson/FAQ-GoodbyeDPI-UI/readme",
+	"packageManager": "pnpm@9.12.1",
 	"dependencies": {
-		"@radix-ui/react-accordion": "^1.1.2",
-		"@radix-ui/react-dialog": "^1.0.5",
-		"@radix-ui/react-dropdown-menu": "^2.0.6",
-		"@radix-ui/react-scroll-area": "^1.0.5",
-		"@radix-ui/react-slot": "^1.0.2",
-		"@radix-ui/react-tabs": "^1.0.4",
-		"@vercel/analytics": "^1.3.1",
-		"@vercel/speed-insights": "^1.0.12",
+		"@next/mdx": "^15.0.2",
+		"@radix-ui/react-accordion": "^1.2.0",
+		"@radix-ui/react-avatar": "^1.1.0",
+		"@radix-ui/react-collapsible": "^1.1.0",
+		"@radix-ui/react-dialog": "^1.1.1",
+		"@radix-ui/react-dropdown-menu": "^2.1.1",
+		"@radix-ui/react-scroll-area": "^1.2.0",
+		"@radix-ui/react-slot": "^1.1.0",
+		"@radix-ui/react-tabs": "^1.1.0",
+		"@types/node": "^20.17.5",
+		"@vercel/analytics": "^1.3.2",
+		"@vercel/speed-insights": "^1.0.14",
 		"class-transformer": "^0.5.1",
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.1.1",
-		"geist": "^1.3.0",
-		"lucide-react": "^0.368.0",
-		"next": "^14.2.4",
+		"geist": "^1.3.1",
+		"gray-matter": "^4.0.3",
+		"lucide-react": "^0.435.0",
+		"next": "^14.2.16",
 		"next-mdx-remote": "^5.0.0",
 		"next-themes": "^0.3.0",
-		"npm-run-all": "^4.1.5",
+		"node-cache": "^5.1.2",
+		"nprogress": "^0.2.0",
+		"phin": "^3.7.1",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
-		"reflect-metadata": "^0.2.2",
 		"rehype-autolink-headings": "^7.1.0",
 		"rehype-code-titles": "^1.2.0",
 		"rehype-prism-plus": "^2.0.0",
 		"rehype-slug": "^6.0.0",
 		"remark-gfm": "^4.0.0",
 		"rxjs": "^7.8.1",
-		"tailwind-merge": "^2.3.0",
+		"sharp": "^0.33.5",
+		"swr": "^2.2.5",
+		"tailwind-merge": "^2.5.2",
 		"tailwindcss-animate": "^1.0.7",
 		"unist-util-visit": "^5.0.0"
 	},
-	"engineStrict": true,
-	"engines": {
-		"node": ">= 20"
-	},
 	"devDependencies": {
-		"@tailwindcss/typography": "^0.5.12",
-		"@types/node": "^20.14.2",
+		"@tailwindcss/typography": "^0.5.14",
+		"@types/node": "^20",
+		"@types/nprogress": "^0.2.3",
 		"@types/react": "^18",
 		"@types/react-dom": "^18",
-		"autoprefixer": "^10.0.1",
+		"autoprefixer": "^10.4.20",
 		"babylon": "^6.18.0",
 		"commitizen": "^4.3.0",
 		"cz-conventional-changelog": "^3.3.0",
-		"eslint": "^8.57.0",
-		"eslint-config-next": "^14.2.4",
-		"husky": "^9.0.11",
+		"eslint": "^8",
+		"eslint-config-next": "^14.2.6",
+		"husky": "^9.1.6",
 		"import-sort": "^6.0.0",
-		"import-sort-cli": "^6.0.0",
-		"import-sort-parser-typescript": "^6.0.0",
-		"import-sort-style-module": "^6.0.0",
-		"lint-staged": "^15.2.5",
+		"lint-staged": "^15.2.10",
+		"npm-run-all": "^4.1.5",
 		"postcss": "^8",
-		"prettier": "^3.3.2",
+		"postcss-import": "^16.1.0",
+		"prettier": "^3.3.3",
 		"source-map-support": "^0.5.21",
-		"supertest": "^6.3.4",
-		"tailwindcss": "^3.3.0",
-		"ts-jest": "^29.1.4",
-		"ts-loader": "^9.5.1",
-		"ts-node": "^10.9.2",
-		"tsconfig-paths": "^4.2.0",
-		"typescript": "^5.4.5"
+		"supertest": "^7.0.0",
+		"tailwindcss": "^3.4.10",
+		"ts-jest": "^29.2.5",
+		"typescript": "^5.6.3"
 	}
 }

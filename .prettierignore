@@ -1,9 +1,10 @@
 node_modules
 .husky
-/coverage
+/dist/
+/node_modules/
+/stories/
 .prettierignore
 .stylelintignore
 .editorconfig
 .eslintignore
-.pnpmignore
-.pnpmrc
+

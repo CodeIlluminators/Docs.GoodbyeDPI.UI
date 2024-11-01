@@ -5,6 +5,10 @@ node_modules/
 build/
 dist/
 .out/
+**/build/**/*.js
+**/.next/**/*.js
+**/build/**/*.ts
+**/.next/**/*.ts
 
 # Ignore all configuration files in the root directory
 # This includes ESLint, Prettier, Babel, Stylelint, and other config files
@@ -25,11 +29,12 @@ dist/
 
 # Ignore lock files
 package-lock.json
+pnpm-lock.yaml
 yarn.lock
 
 # Ignore log files
 npm-debug.log
-yarn-error.log
+pnpm-error.log
 pnpm-debug.log
 
 # Ignore coverage directory used by testing tools
