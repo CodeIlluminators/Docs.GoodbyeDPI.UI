@@ -8,7 +8,7 @@ import { Metadata } from 'next';
 import { MoveUpRightIcon } from 'lucide-react';
 
 export const metadata: Metadata = {
-	title: 'GoodbyeDPI UI - Блог',
+	title: 'Блог - GoodbyeDPI UI',
 };
 
 export default async function BlogIndexPage() {

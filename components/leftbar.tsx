@@ -8,6 +8,7 @@ import {
 } from '@/components/ui/sheet';
 
 import { Button } from '@/components/ui/button';
+import { DialogDescription } from '@radix-ui/react-dialog';
 import { DialogTitle } from '@/components/ui/dialog';
 import DocsMenu from '@/components/docs-menu';
 import { FooterButtons } from '@/components/footer';
@@ -34,6 +35,9 @@ export function SheetLeftbar() {
 			</SheetTrigger>
 			<SheetContent className="flex flex-col gap-4 px-0" side="left">
 				<DialogTitle className="sr-only">Меню</DialogTitle>
+				<DialogDescription id="dialog-description" className="sr-only">
+					Всплывающее меню поиска по документации
+				</DialogDescription>
 				<SheetHeader>
 					<SheetClose asChild>
 						<Logo />
