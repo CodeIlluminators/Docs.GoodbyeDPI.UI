@@ -27,6 +27,7 @@
 		"dev": "next dev -H 0.0.0.0 -p 3001",
 		"start:local": "next start -H 0.0.0.0 -p 3000",
 		"start": "next start",
+		"prebuild": "pnpm clean:write",
 		"build": "next build",
 		"lint:check": "mkdir -p logs && eslint . --no-fix --output-file logs/eslint-check.log",
 		"lint:fix": "eslint . --fix",
