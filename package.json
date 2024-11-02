@@ -22,7 +22,7 @@
 	"homepage": "https://github.com/CodeIlluminators/Docs.GoodbyeDPI.UI/readme",
 	"scripts": {
 		"commit": "cz",
-		"precommit": "lint-staged",
+		"precommit": "run-p clean:write",
 		"prepare": "husky install",
 		"dev": "next dev -H 0.0.0.0 -p 3001",
 		"start:local": "next start -H 0.0.0.0 -p 3000",
@@ -41,11 +41,6 @@
 	"engineStrict": true,
 	"engines": {
 		"node": ">= 20"
-	},
-	"lint-staged": {
-		"*": [
-			"pnpm run clean:write"
-		]
 	},
 	"husky": {
 		"hooks": {
@@ -106,7 +101,7 @@
 		"eslint-config-next": "^14.2.6",
 		"husky": "^9.1.6",
 		"import-sort": "^6.0.0",
-		"lint-staged": "^15.2.10",
+		"import-sort-cli": "^6.0.0",
 		"npm-run-all": "^4.1.5",
 		"postcss": "^8",
 		"postcss-import": "^16.1.0",

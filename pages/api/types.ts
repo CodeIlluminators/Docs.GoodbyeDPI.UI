@@ -4,8 +4,8 @@
  * @property {string} downloadUrl - The direct download URL of the asset.
  */
 export interface GitHubAsset {
-  name: string;
-  downloadUrl: string;
+	name: string;
+	downloadUrl: string;
 }
 
 /**
@@ -17,16 +17,15 @@ export interface GitHubAsset {
  * @property {GitHubAsset[]} assets - An array of assets included in the release.
  */
 export interface GitHubReleaseResponse {
-  id: number;
-  tag_name: string;
-  name: string;
-  created_at: string;
-  assets: Array<{
-    name: string;
-    browser_download_url: string;
-  }>;
+	id: number;
+	tag_name: string;
+	name: string;
+	created_at: string;
+	assets: Array<{
+		name: string;
+		browser_download_url: string;
+	}>;
 }
-
 
 /**
  * Represents the structure of a GitHub release that is processed and returned by the API routes.
@@ -37,11 +36,11 @@ export interface GitHubReleaseResponse {
  * @property {GitHubAsset[]} assets - An array of assets for the release.
  */
 export interface GitHubRelease {
-  id: number;
-  tagName: string;
-  name: string;
-  createdAt: string;
-  assets: GitHubAsset[];
+	id: number;
+	tagName: string;
+	name: string;
+	createdAt: string;
+	assets: GitHubAsset[];
 }
 
 /**
@@ -50,8 +49,8 @@ export interface GitHubRelease {
  * @property {string} [message] - Optional error message if an error occurs.
  */
 export interface ApiReleasesResponse {
-  releases?: GitHubRelease[];
-  message?: string;
+	releases?: GitHubRelease[];
+	message?: string;
 }
 
 /**
@@ -60,6 +59,6 @@ export interface ApiReleasesResponse {
  * @property {string} [message] - Optional error message if an error occurs.
  */
 export interface ApiResponse {
-  assets?: GitHubAsset[];
-  message?: string;
+	assets?: GitHubAsset[];
+	message?: string;
 }

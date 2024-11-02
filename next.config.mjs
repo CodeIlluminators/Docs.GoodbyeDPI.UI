@@ -21,7 +21,7 @@ const nextConfig = {
 	// Configure assetPrefix or else the server won't properly resolve your assets.
 	assetPrefix: isProd ? undefined : `http://localhost:3000`,
 	webpack: (config, { isServer }) => {
-    config.devtool = isServer ? 'source-map' : 'inline-source-map';
+		config.devtool = isServer ? 'source-map' : 'inline-source-map';
 		const fileLoaderRule = config.module.rules.find(rule =>
 			rule.test?.test?.('.svg'),
 		);
