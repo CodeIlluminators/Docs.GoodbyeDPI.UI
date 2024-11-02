@@ -3,9 +3,9 @@ import '@/styles/globals.css';
 import type { Metadata, Viewport } from 'next';
 
 import App from '@/app/App';
+import RouterProgress from '@/components/atoms/router-progress';
 import { GeistMono } from 'geist/font/mono';
 import { GeistSans } from 'geist/font/sans';
-import RouterProgress from '@/components/atoms/router-progress';
 
 export const metadata: Metadata = {
 	title: 'GoodbyeDPI UI',
@@ -30,8 +30,8 @@ export const viewport: Viewport = {
 	maximumScale: 1.0,
 	userScalable: false,
 	themeColor: [
-		{ media: '(prefers-color-scheme: light)', color: 'var(--background)' },
-		{ media: '(prefers-color-scheme: dark)', color: 'var(--background)' },
+		{ media: '(prefers-color-scheme: light)', color: '#fbfdfe' },
+		{ media: '(prefers-color-scheme: dark)', color: '#070b0d' },
 	],
 };
 
