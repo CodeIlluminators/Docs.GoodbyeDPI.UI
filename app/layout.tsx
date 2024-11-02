@@ -11,11 +11,11 @@ export const metadata: Metadata = {
 	title: 'GoodbyeDPI UI',
 	metadataBase: new URL('https://goodbyedpi-ui.vercel.app/'),
 	description:
-		'GoodbyeDPI UI, a graphical interface for managing DPI(Deep Packet Inspection) bypass utils (Windows 10/11).',
+		'Удобный графический интерфейс для управления GoodbyeDPI, Zapret, ByeDPI и SpoofDPI. С его помощью вы можете легко изменять настройки DPI и запускать приложение в трее.',
 	openGraph: {
 		title: 'GoodbyeDPI UI',
 		description:
-			'UI for Managing DPI(Deep Packet Inspection) Bypass utils (Windows 10/11).',
+			'Удобный графический интерфейс для управления GoodbyeDPI, Zapret, ByeDPI и SpoofDPI. С его помощью вы можете легко изменять настройки DPI и запускать приложение в трее.',
 		url: 'https://goodbyedpi-ui.vercel.app/',
 		siteName: 'GoodbyeDPI UI',
 		images: '/opengraph-image.jpg',

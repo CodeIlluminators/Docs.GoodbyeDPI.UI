@@ -8,14 +8,12 @@ import { Metadata } from 'next';
 import { formatDate2 } from '@/lib/utils';
 
 export const metadata: Metadata = {
-	title: 'GoodbyeDPI UI - Журнал изменений',
+	title: 'Журнал изменений - GoodbyeDPI UI',
 };
 
 export default function ChangelogIndexPage() {
 	// const blogs = (await getAllBlogs()).sort(
-	//   (a, b) =>
-	//     stringToDate(b.frontmatter.date).getTime() -
-	//     stringToDate(a.frontmatter.date).getTime()
+	// 	(a, b) => stringToDate(b.date).getTime() - stringToDate(a.date).getTime(),
 	// );
 	return (
 		<div className="w-full flex  flex-col gap-5 sm:min-h-[91vh] min-h-[88vh] md:pt-6 pt-2">
@@ -28,7 +26,7 @@ export default function ChangelogIndexPage() {
 			<DownloadComp />
 			{/* <div>
         {blogs.map((blog) => (
-          <ChangelogPoint {...blog.frontmatter} slug={blog.slug} key={blog.slug} />
+          <ChangelogPoint {...blog} slug={blog.slug} key={blog.slug} />
         ))}
       </div> */}
 		</div>

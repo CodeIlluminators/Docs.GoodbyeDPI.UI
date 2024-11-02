@@ -1,9 +1,9 @@
-import { Analytics } from '@vercel/analytics/react';
+import { ThemeProvider } from '@/components/contexts/theme-provider';
 import { Footer } from '@/components/footer';
 import { Navbar } from '@/components/navbar';
-import { PropsWithChildren } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { ThemeProvider } from '@/components/contexts/theme-provider';
+import { PropsWithChildren } from 'react';
 
 export const App = (props: PropsWithChildren) => {
 	return (

@@ -19,7 +19,7 @@ const Releases = memo(() => {
 		<div className="mb-7 mt-5">
 			{error ? (
 				<p className="text-red-500">
-					An error occurred while fetching all releases. Please try again later.
+					Не удалось загрузить список релизов. Проверьте соединение с интернетом.
 				</p>
 			) : !data ? (
 				<Preloader />

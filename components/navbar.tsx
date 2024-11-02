@@ -53,7 +53,7 @@ export const NAVLINKS = getNavLinks();
 
 export function Navbar() {
 	return (
-		<nav className="w-full border-b h-16 sticky top-0 z-50 backdrop-filter backdrop-blur-xl bg-opacity-5">
+		<nav className="w-full border-b h-16 overflow-hidden sticky top-0 z-50 backdrop-filter backdrop-blur-xl bg-opacity-5">
 			<div className="sm:container mx-auto w-[95vw] h-full flex items-center justify-between md:gap-2">
 				<div className="flex items-center gap-5 pr-[22px]">
 					<SheetLeftbar />

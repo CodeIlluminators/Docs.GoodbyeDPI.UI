@@ -1,14 +1,14 @@
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 
+import { getPreviousNext } from '@/lib/markdown';
 import Link from 'next/link';
 import { buttonVariants } from './ui/button';
-import { getPreviousNext } from '@/lib/markdown';
 
 export default function Pagination({ pathname }: { pathname: string }) {
 	const res = getPreviousNext(pathname);
 
 	return (
-		<div className="select-none grid grid-cols-2 flex-grow sm:py-10 py-7 gap-3">
+		<div className="overflow-hidden select-none grid grid-cols-2 flex-grow sm:py-10 py-7 gap-3">
 			<div>
 				{res.prev && (
 					<Link

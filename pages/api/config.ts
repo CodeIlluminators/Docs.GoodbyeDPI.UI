@@ -18,6 +18,7 @@ export const GitHubAPI = {
 	GITHUB_TOKEN: process.env.GITHUB_TOKEN,
 	SOURCE_TAR_GZ_SUFFIX: 'source code.tar.gz',
 	Errors: {
+		NO_GITHUB_TOKEN: 'GitHub token is not configured',
 		FETCH_FAILED: 'Failed to fetch data from GitHub API',
 		FILE_NOT_FOUND: 'Requested file not found in the latest release',
 		SERVER_ERROR: 'An internal server error occurred',

@@ -20,11 +20,11 @@ const nextConfig = {
 	trailingSlash: true,
 	// Configure assetPrefix or else the server won't properly resolve your assets.
 	assetPrefix: isProd ? undefined : `http://localhost:3000`,
-	webpack: (config, { isServer }) => {
-		config.devtool = isServer ? 'source-map' : 'inline-source-map';
+	webpack: config => {
 		const fileLoaderRule = config.module.rules.find(rule =>
 			rule.test?.test?.('.svg'),
 		);
+
 		config.module.rules.push(
 			{
 				...fileLoaderRule,
@@ -38,6 +38,7 @@ const nextConfig = {
 				use: ['@svgr/webpack'],
 			},
 		);
+
 		fileLoaderRule.exclude = /\.svg$/i;
 		return config;
 	},

@@ -23,7 +23,7 @@
 	"scripts": {
 		"commit": "cz",
 		"precommit": "run-p clean:write",
-		"prepare": "husky install",
+		"prepare": "husky .husky",
 		"dev": "next dev -H 0.0.0.0 -p 3001",
 		"start:local": "next start -H 0.0.0.0 -p 3000",
 		"start": "next start",
