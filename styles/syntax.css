@@ -1,18 +1,18 @@
 /* Light Mode */
 .keyword {
-    color: #8963c4; /* Purple */
+	color: #8963c4; /* Purple */
 }
 
 .function {
-    color: #008a0d; /* Green */
+	color: #008a0d; /* Green */
 }
 
 .punctuation {
-    color: #282a36; /* Light Gray */
+	color: #282a36; /* Light Gray */
 }
 
 .comment {
-    color: #8393c7; /* Bluish Gray */
+	color: #8393c7; /* Bluish Gray */
 }
 
 .string,
@@ -20,29 +20,28 @@
 .annotation,
 .boolean,
 .number {
-    color: #c74493; /* Pink */
+	color: #c74493; /* Pink */
 }
 
 .tag {
-    color: #a56a20; /* Yellow */
+	color: #a56a20; /* Yellow */
 }
 
 .attr-name {
-    color: #048395; /* Cyan */
+	color: #048395; /* Cyan */
 }
 
 .attr-value {
-    color: #8963c4; /* Purple */
+	color: #8963c4; /* Purple */
 }
-
 
 /* Dark Mode */
 .dark .keyword {
-    color: #ff79c6; /* Pink */
+	color: #ff79c6; /* Pink */
 }
 
 .dark .function {
-    color: #50fa7b; /* Green */
+	color: #50fa7b; /* Green */
 }
 
 .dark .string,
@@ -50,21 +49,21 @@
 .dark .annotation,
 .dark .boolean,
 .dark .number {
-    color: #f1fa8c; /* Light Yellow */
+	color: #f1fa8c; /* Light Yellow */
 }
 
 .dark .punctuation {
-    color: #f8f8f2;
+	color: #f8f8f2;
 }
 
 .dark .tag {
-    color: #ffb86c; /* Yellow */
+	color: #ffb86c; /* Yellow */
 }
 
 .dark .attr-name {
-    color: #8be9fd; /* Cyan */
+	color: #8be9fd; /* Cyan */
 }
 
 .dark .attr-value {
-    color: #bd93f9; /* Purple */
+	color: #bd93f9; /* Purple */
 }

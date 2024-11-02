@@ -1,17 +1,17 @@
 ---
-title: "Using React Server Components and Server Actions in Next.js"
-description: "Explore how to leverage React Server Components and Server Actions in Next.js to build modern, efficient web applications. Learn how these features enhance performance and simplify server-side logic."
+title: 'Using React Server Components and Server Actions in Next.js'
+description: 'Explore how to leverage React Server Components and Server Actions in Next.js to build modern, efficient web applications. Learn how these features enhance performance and simplify server-side logic.'
 date: 05-09-2024
 authors:
-  - avatar: "https://ui.shadcn.com/avatars/02.png"
+  - avatar: 'https://ui.shadcn.com/avatars/02.png'
     handle: reactdev
     username: React Dev
-    handleUrl: "https://github.com/reactdev"
-  - avatar: "https://ui.shadcn.com/avatars/01.png"
+    handleUrl: 'https://github.com/reactdev'
+  - avatar: 'https://ui.shadcn.com/avatars/01.png'
     handle: nextjsguru
     username: Next.js Guru
-    handleUrl: "https://github.com/nextjsguru"
-cover: "https://img.freepik.com/premium-vector/many-monsters-various-colors-doodle-come-bless-birthday-happy_577083-85.jpg?w=826"
+    handleUrl: 'https://github.com/nextjsguru'
+cover: 'https://img.freepik.com/premium-vector/many-monsters-various-colors-doodle-come-bless-birthday-happy_577083-85.jpg?w=826'
 ---
 
 ## Introduction: Enhancing Next.js with React Server Components
@@ -36,17 +36,17 @@ Here’s a basic example of a React Server Component in a Next.js application:
 
 ```jsx
 // app/components/UserProfile.server.js
-import { getUserData } from "../lib/api";
+import { getUserData } from '../lib/api';
 
 export default async function UserProfile() {
-  const user = await getUserData();
+	const user = await getUserData();
 
-  return (
-    <div>
-      <h1>{user.name}</h1>
-      <p>{user.email}</p>
-    </div>
-  );
+	return (
+		<div>
+			<h1>{user.name}</h1>
+			<p>{user.email}</p>
+		</div>
+	);
 }
 ```
 
@@ -68,43 +68,43 @@ Here’s how you can use Server Actions in a Next.js application to handle form 
 
 ```jsx
 // app/actions/submitForm.js
-import { saveFormData } from "../lib/api";
+import { saveFormData } from '../lib/api';
 
 export async function submitForm(data) {
-  await saveFormData(data);
-  return { success: true };
+	await saveFormData(data);
+	return { success: true };
 }
 ```
 
 ```jsx
 // app/components/ContactForm.js
-"use client";
+'use client';
 
-import { submitForm } from "../actions/submitForm";
+import { submitForm } from '../actions/submitForm';
 
 export default function ContactForm() {
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const result = await submitForm(Object.fromEntries(formData));
-    if (result.success) {
-      alert("Form submitted successfully!");
-    }
-  };
+	const handleSubmit = async event => {
+		event.preventDefault();
+		const formData = new FormData(event.target);
+		const result = await submitForm(Object.fromEntries(formData));
+		if (result.success) {
+			alert('Form submitted successfully!');
+		}
+	};
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Name:
-        <input type="text" name="name" required />
-      </label>
-      <label>
-        Email:
-        <input type="email" name="email" required />
-      </label>
-      <button type="submit">Submit</button>
-    </form>
-  );
+	return (
+		<form onSubmit={handleSubmit}>
+			<label>
+				Name:
+				<input type="text" name="name" required />
+			</label>
+			<label>
+				Email:
+				<input type="email" name="email" required />
+			</label>
+			<button type="submit">Submit</button>
+		</form>
+	);
 }
 ```
 

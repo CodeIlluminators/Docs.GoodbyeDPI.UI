@@ -1,13 +1,13 @@
 ---
-title: "Building a Recursive File System with React: A Deep Dive"
-description: "Explore how to create a recursive file system in React. This blog post provides a comprehensive guide on building a file system where folders and files can be nested, added, renamed, and deleted."
+title: 'Building a Recursive File System with React: A Deep Dive'
+description: 'Explore how to create a recursive file system in React. This blog post provides a comprehensive guide on building a file system where folders and files can be nested, added, renamed, and deleted.'
 date: 02-09-2024
 authors:
-  - avatar: "https://ui.shadcn.com/avatars/02.png"
+  - avatar: 'https://ui.shadcn.com/avatars/02.png'
     handle: nisabmohd
     username: Nisab Mohd
-    handleUrl: "https://github.com/nisabmohd"
-cover: "https://img.freepik.com/premium-vector/many-monsters-various-colors-doodle-come-bless-birthday-happy_577083-84.jpg?w=826"
+    handleUrl: 'https://github.com/nisabmohd'
+cover: 'https://img.freepik.com/premium-vector/many-monsters-various-colors-doodle-come-bless-birthday-happy_577083-84.jpg?w=826'
 ---
 
 ## Introduction: Crafting a Recursive File System in React
@@ -35,13 +35,13 @@ Here’s a basic structure for a folder:
 
 ```jsx
 const folder = {
-  id: "1",
-  name: "Documents",
-  type: "folder",
-  children: [
-    { id: "2", name: "Resume.pdf", type: "file" },
-    { id: "3", name: "CoverLetter.docx", type: "file" },
-  ],
+	id: '1',
+	name: 'Documents',
+	type: 'folder',
+	children: [
+		{ id: '2', name: 'Resume.pdf', type: 'file' },
+		{ id: '3', name: 'CoverLetter.docx', type: 'file' },
+	],
 };
 ```
 
@@ -53,47 +53,47 @@ The project includes several key components to handle different aspects of the f
 
 ```jsx
 // src/components/FileExplorer.js
-import React, { useState } from "react";
-import Folder from "./Folder";
-import File from "./File";
+import React, { useState } from 'react';
+import Folder from './Folder';
+import File from './File';
 
 const FileExplorer = () => {
-  const [files, setFiles] = useState(initialData); // initialData is your recursive data structure
+	const [files, setFiles] = useState(initialData); // initialData is your recursive data structure
 
-  const addItem = (parentId, type) => {
-    // Logic to add a folder or file
-  };
+	const addItem = (parentId, type) => {
+		// Logic to add a folder or file
+	};
 
-  const renameItem = (id, newName) => {
-    // Logic to rename a folder or file
-  };
+	const renameItem = (id, newName) => {
+		// Logic to rename a folder or file
+	};
 
-  const deleteItem = (id) => {
-    // Logic to delete a folder or file
-  };
+	const deleteItem = id => {
+		// Logic to delete a folder or file
+	};
 
-  return (
-    <div>
-      {files.map((file) =>
-        file.type === "folder" ? (
-          <Folder
-            key={file.id}
-            folder={file}
-            onAdd={addItem}
-            onRename={renameItem}
-            onDelete={deleteItem}
-          />
-        ) : (
-          <File
-            key={file.id}
-            file={file}
-            onRename={renameItem}
-            onDelete={deleteItem}
-          />
-        )
-      )}
-    </div>
-  );
+	return (
+		<div>
+			{files.map(file =>
+				file.type === 'folder' ? (
+					<Folder
+						key={file.id}
+						folder={file}
+						onAdd={addItem}
+						onRename={renameItem}
+						onDelete={deleteItem}
+					/>
+				) : (
+					<File
+						key={file.id}
+						file={file}
+						onRename={renameItem}
+						onDelete={deleteItem}
+					/>
+				),
+			)}
+		</div>
+	);
 };
 
 export default FileExplorer;
@@ -103,20 +103,20 @@ export default FileExplorer;
 
 ```jsx
 // src/components/Folder.js
-import React from "react";
-import FileExplorer from "./FileExplorer";
+import React from 'react';
+import FileExplorer from './FileExplorer';
 
 const Folder = ({ folder, onAdd, onRename, onDelete }) => {
-  return (
-    <div>
-      <h3>{folder.name}</h3>
-      <button onClick={() => onAdd(folder.id, "folder")}>Add Folder</button>
-      <button onClick={() => onAdd(folder.id, "file")}>Add File</button>
-      <button onClick={() => onRename(folder.id, "New Name")}>Rename</button>
-      <button onClick={() => onDelete(folder.id)}>Delete</button>
-      {folder.children && <FileExplorer files={folder.children} />}
-    </div>
-  );
+	return (
+		<div>
+			<h3>{folder.name}</h3>
+			<button onClick={() => onAdd(folder.id, 'folder')}>Add Folder</button>
+			<button onClick={() => onAdd(folder.id, 'file')}>Add File</button>
+			<button onClick={() => onRename(folder.id, 'New Name')}>Rename</button>
+			<button onClick={() => onDelete(folder.id)}>Delete</button>
+			{folder.children && <FileExplorer files={folder.children} />}
+		</div>
+	);
 };
 
 export default Folder;
@@ -126,16 +126,16 @@ export default Folder;
 
 ```jsx
 // src/components/File.js
-import React from "react";
+import React from 'react';
 
 const File = ({ file, onRename, onDelete }) => {
-  return (
-    <div>
-      <p>{file.name}</p>
-      <button onClick={() => onRename(file.id, "New Name")}>Rename</button>
-      <button onClick={() => onDelete(file.id)}>Delete</button>
-    </div>
-  );
+	return (
+		<div>
+			<p>{file.name}</p>
+			<button onClick={() => onRename(file.id, 'New Name')}>Rename</button>
+			<button onClick={() => onDelete(file.id)}>Delete</button>
+		</div>
+	);
 };
 
 export default File;
@@ -149,15 +149,15 @@ State management is handled using React hooks like `useState` to manage the file
 const [files, setFiles] = useState(initialData);
 
 const addItem = (parentId, type) => {
-  // Logic to add a new item to the file system
+	// Logic to add a new item to the file system
 };
 
 const renameItem = (id, newName) => {
-  // Logic to rename an existing item
+	// Logic to rename an existing item
 };
 
-const deleteItem = (id) => {
-  // Logic to delete an item
+const deleteItem = id => {
+	// Logic to delete an item
 };
 ```
 

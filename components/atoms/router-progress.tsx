@@ -1,23 +1,23 @@
-"use client";
+'use client';
 
-import { usePathname } from "next/navigation";
-import NProgress from "nprogress";
-import { useEffect } from "react";
+import NProgress from 'nprogress';
+import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 const RouterProgress = () => {
-  const pathname = usePathname();
-  
-  useEffect(() => {
-    NProgress.configure({ showSpinner: true });
-    NProgress.start();
-    NProgress.done();
+	const pathname = usePathname();
 
-    return () => {
-      NProgress.done();
-    };
-  }, [pathname]);
+	useEffect(() => {
+		NProgress.configure({ showSpinner: true });
+		NProgress.start();
+		NProgress.done();
 
-  return null;
+		return () => {
+			NProgress.done();
+		};
+	}, [pathname]);
+
+	return null;
 };
 
 export default RouterProgress;

@@ -2,136 +2,142 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("../styles/syntax.css");
+@import url('../styles/syntax.css');
+@import url('../styles/nprogress.css');
 
 @layer base {
-  :root {
-    --background: 204 49% 99%;
-    --foreground: 204 79% 3%;
-    --muted: 204 22% 94%;
-    --muted-foreground: 204 2% 27%;
-    --popover: 204 49% 99%;
-    --popover-foreground: 204 79% 3%;
-    --card: 204 49% 98%;
-    --card-foreground: 204 79% 2%;
-    --border: 204 13% 94%;
-    --input: 204 13% 94%;
-    --primary: 204 100% 50%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 204 13% 88%;
-    --secondary-foreground: 204 13% 28%;
-    --accent: 204 13% 88%;
-    --accent-foreground: 204 13% 28%;
-    --destructive: 13 80% 40%;
-    --destructive-foreground: 0 0% 100%;
-    --ring: 204 100% 50%;
-    --radius: 0.65rem;
-  }
-  .dark {
-    --background: 204 31% 4%;
-    --foreground: 204 27% 99%;
-    --muted: 204 22% 6%;
-    --muted-foreground: 204 2% 73%;
-    --popover: 204 31% 4%;
-    --popover-foreground: 204 27% 99%;
-    --card: 204 31% 5%;
-    --card-foreground: 0 0% 100%;
-    --border: 204 13% 15%;
-    --input: 204 13% 15%;
-    --primary: 204 100% 50%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 204 19% 20%;
-    --secondary-foreground: 204 19% 80%;
-    --accent: 204 19% 20%;
-    --accent-foreground: 204 19% 80%;
-    --destructive: 13 80% 53%;
-    --destructive-foreground: 0 0% 100%;
-    --ring: 204 100% 50%;
-  }
+	:root {
+		--background: 204 49% 99%;
+		--foreground: 204 79% 3%;
+		--muted: 204 22% 94%;
+		--muted-foreground: 204 2% 27%;
+		--popover: 204 49% 99%;
+		--popover-foreground: 204 79% 3%;
+		--card: 204 49% 98%;
+		--card-foreground: 204 79% 2%;
+		--border: 204 13% 94%;
+		--input: 204 13% 94%;
+		--primary: 204 100% 50%;
+		--primary-foreground: 0 0% 100%;
+		--secondary: 204 13% 88%;
+		--secondary-foreground: 204 13% 28%;
+		--accent: 204 13% 88%;
+		--accent-foreground: 204 13% 28%;
+		--destructive: 13 80% 40%;
+		--destructive-foreground: 0 0% 100%;
+		--ring: 204 100% 50%;
+		--radius: 0.65rem;
+	}
+	.dark {
+		--background: 204 31% 4%;
+		--foreground: 204 27% 99%;
+		--muted: 204 22% 6%;
+		--muted-foreground: 204 2% 73%;
+		--popover: 204 31% 4%;
+		--popover-foreground: 204 27% 99%;
+		--card: 204 31% 5%;
+		--card-foreground: 0 0% 100%;
+		--border: 204 13% 15%;
+		--input: 204 13% 15%;
+		--primary: 204 100% 50%;
+		--primary-foreground: 0 0% 100%;
+		--secondary: 204 19% 20%;
+		--secondary-foreground: 204 19% 80%;
+		--accent: 204 19% 20%;
+		--accent-foreground: 204 19% 80%;
+		--destructive: 13 80% 53%;
+		--destructive-foreground: 0 0% 100%;
+		--ring: 204 100% 50%;
+	}
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
+	* {
+		@apply border-border;
+	}
 
-  html {
-    @apply scroll-smooth;
-  }
+	html {
+		@apply scroll-smooth;
+	}
 
-  body {
-    @apply bg-background text-foreground;
-  }
+	body {
+		@apply bg-background text-foreground;
+	}
 }
 
-::-moz-selection, ::selection {
-  @apply text-background bg-primary;
+::-moz-selection,
+::selection {
+	@apply text-background bg-primary;
 }
 
-img, svg {
-  @apply select-none;
+img,
+svg {
+	@apply select-none;
 }
 
 .prose {
-  margin: 0 !important;
+	margin: 0 !important;
 }
 
 pre {
-  padding: 2px 0 !important;
-  width: inherit !important;
-  overflow-x: auto;
+	padding: 2px 0 !important;
+	width: inherit !important;
+	overflow-x: auto;
 }
 
-pre>code {
-  display: grid;
-  max-width: inherit !important;
-  padding: 14px 0 !important;
+pre > code {
+	display: grid;
+	max-width: inherit !important;
+	padding: 14px 0 !important;
 }
 
 .code-line {
-  padding: 0.75px 16px;
-  @apply border-l-2 border-transparent
+	padding: 0.75px 16px;
+	@apply border-l-2 border-transparent;
 }
 
 .line-number::before {
-  display: inline-block;
-  width: 1rem;
-  margin-right: 22px;
-  margin-left: -2px;
-  color: rgb(110, 110, 110);
-  content: attr(line);
-  font-size: 13.5px;
-  text-align: right;
+	display: inline-block;
+	width: 1rem;
+	margin-right: 22px;
+	margin-left: -2px;
+	color: rgb(110, 110, 110);
+	content: attr(line);
+	font-size: 13.5px;
+	text-align: right;
 }
 
 .highlight-line {
-  @apply bg-primary/5 border-l-2 border-primary/30;
+	@apply bg-primary/5 border-l-2 border-primary/30;
 }
-
 
 .rehype-code-title {
-  @apply px-2 -mb-8 w-full text-sm pb-5 font-medium mt-5 font-code;
+	@apply px-2 -mb-8 w-full text-sm pb-5 font-medium mt-5 font-code;
 }
 
-.highlight-comp>code {
-  background-color: transparent !important;
+.highlight-comp > code {
+	background-color: transparent !important;
 }
 
 .fade-enter {
-  opacity: 0;
-  transform: translateY(20px); /* Optional: adds a slight upward movement */
+	opacity: 0;
+	transform: translateY(20px); /* Optional: adds a slight upward movement */
 }
 .fade-enter-active {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+	opacity: 1;
+	transform: translateY(0);
+	transition:
+		opacity 0.3s ease,
+		transform 0.3s ease;
 }
 .fade-exit {
-  opacity: 1;
-  transform: translateY(0);
+	opacity: 1;
+	transform: translateY(0);
 }
 .fade-exit-active {
-  opacity: 0;
-  transform: translateY(20px); /* Optional: adds a slight upward movement */
-  transition: opacity 0.3s ease, transform 0.3s ease;
+	opacity: 0;
+	transform: translateY(20px); /* Optional: adds a slight upward movement */
+	transition:
+		opacity 0.3s ease,
+		transform 0.3s ease;
 }
